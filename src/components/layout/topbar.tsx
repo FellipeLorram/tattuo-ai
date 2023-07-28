@@ -6,7 +6,7 @@ import { Logo } from './logo';
 
 export function Topbar() {
   return (
-    <div className='w-full border-b border-zinc-300 md:px-10 gap-4 flex flex-col md:gap-0 px-4 py-2 bg-white'>
+    <div className='w-full border-b bg-gray-900 md:px-12 gap-6 flex flex-col px-6 pt-6 md:pt-8'>
       <div className='flex flex-row items-center justify-between'>
 
         <Logo />
@@ -19,7 +19,7 @@ export function Topbar() {
         </Avatar>
       </div>
 
-      <nav className='flex flex-row items-center justify-center flex-1 gap-2'>
+      <nav className='flex flex-row items-center justify-start flex-1 gap-2  -mb-px'>
         <NavLink href='/generate'>
           Gerar
         </NavLink>

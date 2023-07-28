@@ -12,7 +12,7 @@ export function EmptyBoxAnimation() {
 				animationData={emptyBox}
 			/>
 
-			<p className='text-sm text-zinc-500'>
+			<p className='text-sm text-gray-300'>
 				Nada por aqui...
 			</p>
 		</div>

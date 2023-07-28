@@ -41,7 +41,6 @@ export default function Page() {
               {imagesUrl.length > 0 ? <GeneratedImageGrid urls={imagesUrl} /> : <HandTattooAnimation />}
             </>
           )}
-
       </div>
 
       <motion.div

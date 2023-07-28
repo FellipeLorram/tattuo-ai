@@ -14,8 +14,7 @@ export function NavLink({ children, href }: Props) {
 	return (
 		<Link
 			data-active={pathName === href}
-			className={`text-xs uppercase font-semibold transition-colors duration-200 ease-in-out p-2 rounded-md hover:bg-zinc-100 text-zinc-950
-			${pathName === href && 'bg-zinc-100'}`}
+			className={` whitespace-nowrap border-b pb-4 pt-2 leading-none text-gray-50 transition px-4 ${pathName === href ? 'border-indigo-600 font-semibold' : ' border-transparent hover:border-gray-600'}`}
 			href={href}
 		>
 			{children}

@@ -16,7 +16,7 @@ export async function POST(
 		const { prompt, quantity, resolution } = generateImageSchema.parse(body);
 
 		const { data } = await openai.createImage({
-			prompt,
+			prompt: 'the images is going to be used for tattoos, and needs to be realistic:' + prompt,
 			n: parseInt(quantity, 10),
 			size: resolution as CreateImageRequest['size'],
 		});
@@ -26,6 +26,7 @@ export async function POST(
 
 	} catch (error: any) {
 		console.log(error.message);
+		console.log(error);
 		return new NextResponse('Internal Error', {
 			status: 500,
 		});

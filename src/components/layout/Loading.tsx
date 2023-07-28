@@ -3,7 +3,7 @@
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 
-import LoadingBoxes from '@/assets/animations/Loading-boxes.json';
+import LoadingBoxes from '@/assets/animations/BOXS.json';
 
 export function Loading() {
 	return (
@@ -14,11 +14,13 @@ export function Loading() {
 		>
 
 			<Lottie
-				className='w-32 h-32 md:w-60 md:h-60'
+				className='w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60'
 				animationData={LoadingBoxes}
 			/>
+						<div className="h-px w-px rounded-full shadow-[0_-50px_300px_70px_rgba(79,70,229,0.20)] md:shadow-[0_-100px_300px_100px_rgba(79,70,229,0.15)]"></div>
+
 			<p
-				className='text-sm text-zinc-700'
+				className='text-sm text-gray-300 -mt-5'
 			>
 				Gerando
 			</p>

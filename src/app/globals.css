@@ -22,3 +22,12 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+* {
+	border-color: #2b2b2b
+}
+
+.transition {
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .2s;
+}

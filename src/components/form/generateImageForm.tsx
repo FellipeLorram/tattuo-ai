@@ -61,7 +61,7 @@ export function GenerateImageForm({ onSubmit }: Props) {
 
 	async function handleSubmit(data: GenerateImageFormType) {
 		await onSubmit(data);
-		form.reset();
+		form.setValue('prompt', '');
 	}
 
 	return (
@@ -160,7 +160,7 @@ export function GenerateImageForm({ onSubmit }: Props) {
 				/>
 
 				<Button
-					className='bg-black w-full md:w-fit gap-2'
+					className=' w-full md:w-fit gap-2'
 					type="submit"
 					disabled={form.formState.isSubmitting}
 				>
@@ -171,9 +171,10 @@ export function GenerateImageForm({ onSubmit }: Props) {
 					)}
 
 					<Send
-						size={16}
+						className='stroke-gray-900'
+						size={20}
 					/>
-					<p className='md:w-fit md:hidden'>
+					<p className='md:w-fit md:hidden text-gray-900'>
 						Criar
 					</p>
 				</Button>

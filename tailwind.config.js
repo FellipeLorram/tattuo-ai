@@ -36,6 +36,16 @@ module.exports = {
         sans: ['var(--font-montserrat)', ...fontFamily.sans],
         logo: ['var(--font-staatliches)', ...fontFamily.serif],
       },
+      colors: {
+        gray: {
+          50: '#fafafa',
+          300: '#c1c1c1',
+          600: '#616161',
+          700: '#414141',
+          850: '#1a1a1a',
+          900: '#111111'
+        }
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
