@@ -42,7 +42,7 @@ export function GeneratedImageGrid({ urls }: Props) {
 				<AnimatePresence mode='wait'>
 					<motion.div
 						initial={{ background: 'rgb(0 0 0 / 0.0)', backdropFilter: 'blur(0px)' }}
-						animate={{ background: 'rgb(0 0 0 / 0.5)', backdropFilter: 'blur(2px)' }}
+						animate={{ background: 'rgb(0 0 0 / 0.9)', backdropFilter: 'blur(8px)' }}
 						onClick={() => setSelectedUrl(null)}
 						className='w-full fixed inset-0 flex items-center justify-center flex-col bg-black/70 z-40 p-2'>
 						<motion.div
