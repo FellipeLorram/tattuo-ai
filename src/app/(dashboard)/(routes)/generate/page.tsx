@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import { GenerateImageForm } from "@/components/form/generateImageForm";

@@ -20,6 +20,7 @@ export async function POST(
 			n: parseInt(quantity, 10),
 			size: resolution as CreateImageRequest['size'],
 		});
+		
 		const urls = data.data.map(item => item.url);
 
 		return NextResponse.json(urls);

@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster';
 import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} bg-gray-900 `} >
         {children}
+        <Toaster />
       </body>
     </html>
   )

@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Button } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import { Download, PenLine, Save } from 'lucide-react';
+import Link from 'next/link';
 
 interface Props {
 	urls: string[];
@@ -60,18 +61,20 @@ export function GeneratedImageGrid({ urls }: Props) {
 						<motion.div
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
-							transition={{  duration: 0.2, type: 'tween' }}
+							transition={{ duration: 0.2, type: 'tween' }}
 							className='w-full max-w-[512px] bg-gray-900 rounded-b-md flex flex-col sm:flex-row items-center justify-center gap-2 p-2'
 						>
-							<Button
-								className='w-full flex items-center justify-center gap-2 z-40'
-								variant='secondary'
+							<a
+								className={buttonVariants({ variant: 'secondary', className: 'w-full flex items-center justify-center gap-2 z-40' })}
+								href={selectedUrl}
+								download={true}
+								target='_blank'
 							>
 								<Download className='h-5 w-5' />
 								<p className='text-sm'>
 									Download
 								</p>
-							</Button>
+							</a>
 							<Button
 								className='w-full flex items-center justify-center gap-2'
 								variant='secondary'
