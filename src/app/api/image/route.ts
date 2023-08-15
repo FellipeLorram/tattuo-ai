@@ -16,7 +16,7 @@ export async function POST(
 		const { prompt, quantity, resolution } = generateImageSchema.parse(body);
 
 		const { data } = await openai.createImage({
-			prompt: 'the images is going to be used for tattoos, and needs to be realistic:' + prompt,
+			prompt: prompt,
 			n: parseInt(quantity, 10),
 			size: resolution as CreateImageRequest['size'],
 		});

@@ -12,7 +12,7 @@ export function UserAuthForm() {
 	async function loginWithGoogle() {
 		setLoading(true);
 		try {
-			await signIn('google')
+			await signIn('google');
 		} catch (error) {
 			console.log(error);
 			toast({

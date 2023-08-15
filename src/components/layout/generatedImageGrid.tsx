@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Button, buttonVariants } from '../ui/button';
 import { Download, PenLine, Save } from 'lucide-react';
-import Link from 'next/link';
+import axios from 'axios';
 
 interface Props {
 	urls: string[];
@@ -12,10 +12,21 @@ interface Props {
 export function GeneratedImageGrid({ urls }: Props) {
 	const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
 	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [loading, setLoading] = useState(false);
 
 	function handleImageClick(url: string, index: number) {
 		setSelectedUrl(url);
 		setSelectedIndex(index);
+	}
+
+	async function saveImage(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		e.stopPropagation();
+		setLoading(true);
+		await axios.post('/api/save-image', {
+			imageUrl: selectedUrl,
+			prompt: 'prompt',
+		});
+		setLoading(false);
 	}
 
 	return (
@@ -76,6 +87,8 @@ export function GeneratedImageGrid({ urls }: Props) {
 								</p>
 							</a>
 							<Button
+								disabled={loading}
+								onClick={e => saveImage(e)}
 								className='w-full flex items-center justify-center gap-2'
 								variant='secondary'
 							>
@@ -85,6 +98,7 @@ export function GeneratedImageGrid({ urls }: Props) {
 								</p>
 							</Button>
 							<Button
+								disabled={loading}
 								className='w-full flex items-center justify-center gap-2'
 								variant='secondary'
 							>

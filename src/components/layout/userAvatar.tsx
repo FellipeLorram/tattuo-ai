@@ -35,7 +35,8 @@ export async function UserAvatar({ user }: UserAvatarProps) {
 					onClick={(event) => {
 						event.preventDefault()
 						signOut({
-							callbackUrl: `${window.location.origin}/sign-in`,
+							callbackUrl: 'http://localhost:3000/sign-in',
+							redirect: true
 						})
 					}}>
 					Sair

@@ -2,6 +2,7 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+import { Providers } from '@/components/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-gray-900 `} >
-        {children}
-        <Toaster />
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
