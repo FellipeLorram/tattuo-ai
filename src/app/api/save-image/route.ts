@@ -18,7 +18,7 @@ export async function POST(
 
 		const { imageUrl, prompt } = bodySchema.parse(body);
 
-		const session = await getAuthSession()
+		const session = await getAuthSession();
 
 		if (!session?.user) {
 			return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
@@ -39,25 +39,26 @@ export async function POST(
 		const imageResponse = await fetch(imageUrl);
 		const imageBuffer = await imageResponse.arrayBuffer();
 
-		const path = `${session?.user.id}/${imageUrl}.png`;
+		console.log(imageBuffer);
+		// const path = `${session?.user.id}/${imageUrl}.png`;
 
-		const { error: uploadError, data } = await supabase.storage.from('saved-images').upload(path, imageBuffer);
+		// const { error: uploadError, data } = await supabase.storage.from('saved-images').upload(path, imageBuffer);
 
-		if (uploadError) {
-			console.log(uploadError);
-			return NextResponse.json({ message: 'Internal Error' }, {
-				status: 500,
-			});
-		}
+		// if (uploadError) {
+		// 	console.log(uploadError);
+		// 	return NextResponse.json({ message: 'Internal Error' }, {
+		// 		status: 500,
+		// 	});
+		// }
 
-		await db.savedImagesUrl.create({
-			data: {
-				id: imageUrl,
-				url: data.path,
-				userId: session?.user.id,
-				prompt,
-			},
-		});
+		// await db.savedImagesUrl.create({
+		// 	data: {
+		// 		id: imageUrl,
+		// 		url: data.path,
+		// 		userId: session?.user.id,
+		// 		prompt,
+		// 	},
+		// });
 
 
 		return NextResponse.json({ message: 'Image saved successfully' });
